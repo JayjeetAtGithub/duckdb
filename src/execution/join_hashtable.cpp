@@ -1,5 +1,7 @@
 #include "duckdb/execution/join_hashtable.hpp"
 
+#include <iostream>
+
 #include "duckdb/common/exception.hpp"
 #include "duckdb/common/operator/comparison_operators.hpp"
 #include "duckdb/common/row_operations/row_operations.hpp"
@@ -238,6 +240,7 @@ void JoinHashTable::Build(DataChunk &keys, DataChunk &payload) {
 }
 
 void JoinHashTable::InsertHashes(Vector &hashes, idx_t count, data_ptr_t key_locations[]) {
+	std::cout << "JoinHashTable::InsertHashes" << std::endl;
 	D_ASSERT(hashes.GetType().id() == LogicalTypeId::HASH);
 
 	// use bitmask to get position in array

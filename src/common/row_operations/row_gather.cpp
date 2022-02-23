@@ -2,7 +2,7 @@
 // row_gather.cpp
 // Description: This file contains the implementation of the gather operators
 //===--------------------------------------------------------------------===//
-
+#include <iostream>
 #include "duckdb/common/exception.hpp"
 #include "duckdb/common/operator/constant_operators.hpp"
 #include "duckdb/common/row_operations/row_operations.hpp"
@@ -61,6 +61,8 @@ static void GatherNestedVector(Vector &rows, const SelectionVector &row_sel, Vec
 
 void RowOperations::Gather(Vector &rows, const SelectionVector &row_sel, Vector &col, const SelectionVector &col_sel,
                            const idx_t count, const idx_t col_offset, const idx_t col_no, const idx_t build_size) {
+	
+	std::cout << "RowOperations::Gather" << std::endl;
 	D_ASSERT(rows.GetVectorType() == VectorType::FLAT_VECTOR);
 	D_ASSERT(rows.GetType().id() == LogicalTypeId::POINTER); // "Cannot gather from non-pointer type!"
 
