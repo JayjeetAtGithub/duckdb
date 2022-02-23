@@ -240,7 +240,7 @@ void JoinHashTable::Build(DataChunk &keys, DataChunk &payload) {
 }
 
 void JoinHashTable::InsertHashes(Vector &hashes, idx_t count, data_ptr_t key_locations[]) {
-	std::cout << "JoinHashTable::InsertHashes" << std::endl;
+	std::cerr << "JoinHashTable::InsertHashes" << std::endl;
 	D_ASSERT(hashes.GetType().id() == LogicalTypeId::HASH);
 
 	// use bitmask to get position in array
