@@ -22,6 +22,10 @@ struct CosFun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 
+struct CoshFun {
+	static void RegisterFunction(BuiltinFunctions &set);
+};
+
 struct TanFun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };

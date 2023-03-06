@@ -980,6 +980,21 @@ void CosFun::RegisterFunction(BuiltinFunctions &set) {
 }
 
 //===--------------------------------------------------------------------===//
+// cosh
+//===--------------------------------------------------------------------===//
+struct CoshOperator {
+	template <class TA, class TR>
+	static inline TR Operation(TA input) {
+		return (double)std::cosh(input);
+	}
+};
+
+void CoshFun::RegisterFunction(BuiltinFunctions &set) {
+	set.AddFunction(
+	    ScalarFunction("cosh", {LogicalType::DOUBLE}, LogicalType::DOUBLE,
+	                   ScalarFunction::UnaryFunction<double, double, NoInfiniteDoubleWrapper<CoshOperator>>));
+
+//===--------------------------------------------------------------------===//
 // tan
 //===--------------------------------------------------------------------===//
 struct TanOperator {
