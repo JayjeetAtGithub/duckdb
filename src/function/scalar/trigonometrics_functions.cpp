@@ -6,9 +6,11 @@ namespace duckdb {
 
 void BuiltinFunctions::RegisterTrigonometricsFunctions() {
 	Register<SinFun>();
+	Register<SinhFun>();
 	Register<CosFun>();
 	Register<CoshFun>();
 	Register<TanFun>();
+	Register<TanhFun>();
 	Register<AsinFun>();
 	Register<AcosFun>();
 	Register<AtanFun>();

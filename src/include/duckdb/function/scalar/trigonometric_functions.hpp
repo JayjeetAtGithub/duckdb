@@ -18,6 +18,10 @@ struct SinFun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 
+struct SinhFun {
+	static void RegisterFunction(BuiltinFunctions &set);
+};
+
 struct CosFun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
@@ -27,6 +31,10 @@ struct CoshFun {
 };
 
 struct TanFun {
+	static void RegisterFunction(BuiltinFunctions &set);
+};
+
+struct TanhFun {
 	static void RegisterFunction(BuiltinFunctions &set);
 };
 

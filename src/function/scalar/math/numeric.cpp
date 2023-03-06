@@ -964,6 +964,23 @@ void SinFun::RegisterFunction(BuiltinFunctions &set) {
 }
 
 //===--------------------------------------------------------------------===//
+// sinh
+//===--------------------------------------------------------------------===//
+
+struct SinhOperator {
+	template <class TA, class TR>
+	static inline TR Operation(TA input) {
+		return std::sinh(input);
+	}
+};
+
+void SinhFun::RegisterFunction(BuiltinFunctions &set) {
+	set.AddFunction(
+	    ScalarFunction("sinh", {LogicalType::DOUBLE}, LogicalType::DOUBLE,
+	                   ScalarFunction::UnaryFunction<double, double, NoInfiniteDoubleWrapper<SinhOperator>>));
+}
+
+//===--------------------------------------------------------------------===//
 // cos
 //===--------------------------------------------------------------------===//
 struct CosOperator {
@@ -1008,6 +1025,22 @@ void TanFun::RegisterFunction(BuiltinFunctions &set) {
 	set.AddFunction(
 	    ScalarFunction("tan", {LogicalType::DOUBLE}, LogicalType::DOUBLE,
 	                   ScalarFunction::UnaryFunction<double, double, NoInfiniteDoubleWrapper<TanOperator>>));
+}
+
+//===--------------------------------------------------------------------===//
+// tanh
+//===--------------------------------------------------------------------===//
+struct TanhOperator {
+	template <class TA, class TR>
+	static inline TR Operation(TA input) {
+		return (double)std::tanh(input);
+	}
+};
+
+void TanhFun::RegisterFunction(BuiltinFunctions &set) {
+	set.AddFunction(
+	    ScalarFunction("tanh", {LogicalType::DOUBLE}, LogicalType::DOUBLE,
+	                   ScalarFunction::UnaryFunction<double, double, NoInfiniteDoubleWrapper<TanhOperator>>));
 }
 
 //===--------------------------------------------------------------------===//
